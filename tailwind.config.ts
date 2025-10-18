@@ -78,6 +78,42 @@ export default {
             height: "0",
           },
         },
+        "twinkle": {
+          "0%, 100%": {
+            opacity: "0.3",
+            transform: "scale(1)",
+          },
+          "50%": {
+            opacity: "1",
+            transform: "scale(1.2)",
+          },
+        },
+        "shoot-star": {
+          "0%": {
+            transform: "translateX(-100px) translateY(-100px)",
+            opacity: "0",
+          },
+          "50%": {
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateX(100px) translateY(100px)",
+            opacity: "0",
+          },
+        },
+        "star-burst": {
+          "0%": {
+            transform: "scale(0) rotate(0deg)",
+            opacity: "0",
+          },
+          "50%": {
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scale(1) rotate(180deg)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -86,6 +122,9 @@ export default {
         "pulse-soft": "pulse-soft 3s ease-in-out infinite",
         "float-up": "float-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards",
         "gold-glow": "gold-glow 2s ease-out forwards",
+        "twinkle": "twinkle 3s ease-in-out infinite",
+        "shoot-star": "shoot-star 2s ease-out forwards",
+        "star-burst": "star-burst 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards",
       },
     },
   },

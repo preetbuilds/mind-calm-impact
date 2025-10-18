@@ -8,51 +8,54 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Reconnct Design System - Quiet Luxury */
-    --background: 210 20% 97.5%; /* Off-white #F7F8FA */
-    --foreground: 210 11% 15%; /* Charcoal #212529 */
+    /* Reconnct Design System - Night Sky Theme */
+    --background: 220 25% 8%; /* Deep space navy */
+    --foreground: 210 20% 98%; /* Soft white for text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 11% 15%;
+    --card: 220 20% 12%; /* Slightly lighter than background */
+    --card-foreground: 210 20% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 11% 15%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 210 11% 15%; /* Charcoal */
-    --primary-foreground: 210 20% 97.5%;
+    --primary: 41 90% 65%; /* Bright star gold */
+    --primary-foreground: 220 25% 8%;
 
-    --secondary: 210 31% 80%; /* Muted blue #A9C4DD */
-    --secondary-foreground: 210 11% 15%;
+    --secondary: 210 70% 60%; /* Nebula blue */
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 210 31% 80%;
-    --muted-foreground: 210 11% 35%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 210 20% 65%;
 
-    --accent: 210 31% 75%; /* Muted blue accent */
-    --accent-foreground: 210 11% 15%;
+    --accent: 172 77% 55%; /* Aurora teal */
+    --accent-foreground: 220 25% 8%;
 
-    --gold: 41 73% 56%; /* Muted gold #E3B23C for rewards */
-    --gold-foreground: 210 11% 15%;
+    --gold: 41 90% 65%; /* Star gold for achievements */
+    --gold-foreground: 220 25% 8%;
 
-    --teal: 172 77% 39%; /* Live data #1DAE9F */
-    --teal-foreground: 0 0% 100%;
+    --teal: 172 77% 55%; /* Aurora/meter teal */
+    --teal-foreground: 220 25% 8%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 214 33% 91%; /* Soft grey #E6EDF4 */
-    --input: 214 33% 91%;
-    --ring: 210 31% 75%;
+    --border: 220 20% 18%; /* Subtle borders */
+    --input: 220 20% 15%;
+    --ring: 41 90% 65%;
 
-    --radius: 1rem; /* More rounded for tactile feel */
+    --radius: 1rem;
 
-    /* Gradients */
-    --gradient-welcome: linear-gradient(180deg, hsl(210 20% 97.5%), hsl(210 31% 85%));
-    --gradient-void: linear-gradient(135deg, hsl(210 11% 10%), hsl(210 11% 20%));
-    --gradient-gold: linear-gradient(135deg, hsl(41 73% 56%), hsl(41 73% 66%));
+    /* Night Sky Gradients */
+    --gradient-night: linear-gradient(180deg, hsl(220 25% 8%), hsl(230 30% 12%));
+    --gradient-void: linear-gradient(135deg, hsl(220 25% 6%), hsl(230 30% 10%));
+    --gradient-star: linear-gradient(135deg, hsl(41 90% 65%), hsl(41 90% 75%));
+    --gradient-nebula: linear-gradient(135deg, hsl(210 70% 60%), hsl(172 77% 55%));
+    --gradient-constellation: radial-gradient(circle at 50% 50%, hsl(41 90% 65% / 0.2), transparent 70%);
     
-    /* Shadows */
-    --shadow-soft: 0 4px 24px -4px hsl(210 11% 15% / 0.08);
-    --shadow-gold: 0 8px 32px -8px hsl(41 73% 56% / 0.3);
+    /* Star Shadows */
+    --shadow-star: 0 0 20px hsl(41 90% 65% / 0.4), 0 0 40px hsl(41 90% 65% / 0.2);
+    --shadow-glow: 0 0 30px hsl(172 77% 55% / 0.3);
+    --shadow-soft: 0 4px 24px hsl(220 25% 4% / 0.5);
     
     /* Transitions */
     --transition-slow: all 600ms cubic-bezier(0.22, 1, 0.36, 1);
@@ -147,6 +150,56 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes shoot-star {
+    0% {
+      transform: translateX(-100px) translateY(-100px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100px) translateY(100px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes constellation-draw {
+    0% {
+      stroke-dashoffset: 1000;
+      opacity: 0;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes star-burst {
+    0% {
+      transform: scale(0) rotate(0deg);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) rotate(180deg);
+      opacity: 1;
+    }
+  }
+
   .animate-breathe {
     animation: breathe 6s ease-in-out infinite;
   }
@@ -161,5 +214,37 @@ All colors MUST be HSL.
 
   .animate-gold-glow {
     animation: gold-glow 2s ease-out forwards;
+  }
+
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  .animate-shoot-star {
+    animation: shoot-star 2s ease-out forwards;
+  }
+
+  .animate-star-burst {
+    animation: star-burst 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* Starfield background */
+  .starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: hsl(var(--gold));
+    border-radius: 50%;
+    box-shadow: 0 0 4px hsl(var(--gold) / 0.8);
   }
 }

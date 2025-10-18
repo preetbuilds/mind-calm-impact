@@ -25,12 +25,23 @@ const Dashboard = () => {
       {/* Header */}
       <div className="p-6 space-y-6 relative z-10">
         <div className="animate-float-up">
-          <h1 className="text-2xl font-bold text-foreground">Welcome back, Stargazer</h1>
+          <h1 className="text-2xl font-bold text-foreground">Welcome back, Void Seeker</h1>
           <p className="text-muted-foreground">Your constellation is growing</p>
         </div>
 
+        {/* Start Void CTA */}
+        <Button
+          onClick={() => navigate("/pre-session")}
+          size="lg"
+          className="w-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:shadow-star py-6 text-lg rounded-full animate-float-up relative overflow-hidden group"
+          style={{ animationDelay: "50ms" }}
+        >
+          <span className="relative z-10">Start New Void</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-foreground/10 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+        </Button>
+
         {/* Streak Showcase */}
-        <Card className="p-6 bg-gradient-to-br from-card via-card to-primary/5 border-primary/30 animate-float-up" style={{ animationDelay: "50ms" }}>
+        <Card className="p-6 bg-gradient-to-br from-card via-card to-primary/5 border-primary/30 animate-float-up" style={{ animationDelay: "100ms" }}>
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <p className="text-sm text-muted-foreground mb-1">Current Streak</p>
@@ -42,7 +53,7 @@ const Dashboard = () => {
         </Card>
 
         {/* Impact Connection */}
-        <div className="animate-float-up" style={{ animationDelay: "100ms" }}>
+        <div className="animate-float-up" style={{ animationDelay: "150ms" }}>
           <ImpactConnection
             sessionsCompleted={1}
             voidPoints={10}
@@ -52,12 +63,12 @@ const Dashboard = () => {
         </div>
 
         {/* Tolerance Ring */}
-        <div className="flex justify-center animate-float-up" style={{ animationDelay: "150ms" }}>
+        <div className="flex justify-center animate-float-up" style={{ animationDelay: "200ms" }}>
           <ToleranceRing current={3} target={20} />
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-3 animate-float-up" style={{ animationDelay: "200ms" }}>
+        <div className="grid grid-cols-3 gap-3 animate-float-up" style={{ animationDelay: "250ms" }}>
           {stats.map((stat, index) => {
             const Icon = stat.icon;
             return (
@@ -70,19 +81,8 @@ const Dashboard = () => {
           })}
         </div>
 
-        {/* Start Void CTA */}
-        <Button
-          onClick={() => navigate("/pre-session")}
-          size="lg"
-          className="w-full bg-gradient-to-r from-primary to-primary/80 text-primary-foreground hover:shadow-star py-6 text-lg rounded-full animate-float-up relative overflow-hidden group"
-          style={{ animationDelay: "300ms" }}
-        >
-          <span className="relative z-10">Start New Void</span>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-foreground/10 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-        </Button>
-
         {/* Today's Challenge */}
-        <Card className="p-5 bg-gradient-to-br from-accent/20 to-secondary/10 border-accent/30 animate-float-up relative overflow-hidden" style={{ animationDelay: "400ms" }}>
+        <Card className="p-5 bg-gradient-to-br from-accent/20 to-secondary/10 border-accent/30 animate-float-up relative overflow-hidden" style={{ animationDelay: "300ms" }}>
           <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-constellation opacity-30" />
           <div className="flex items-center justify-between relative z-10">
             <div>
@@ -104,7 +104,7 @@ const Dashboard = () => {
         </Card>
 
         {/* Recent Insights */}
-        <div className="space-y-3 animate-float-up" style={{ animationDelay: "500ms" }}>
+        <div className="space-y-3 animate-float-up" style={{ animationDelay: "350ms" }}>
           <div className="flex items-center justify-between">
             <h3 className="font-semibold text-foreground">Recent Insights</h3>
             <Button
